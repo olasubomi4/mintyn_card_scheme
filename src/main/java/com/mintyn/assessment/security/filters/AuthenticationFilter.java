@@ -1,11 +1,11 @@
-package com.mintyn.assessment.securities.filter;
+package com.mintyn.assessment.security.filters;
 
 import java.io.IOException;
 import java.util.Date;
 
 import com.mintyn.assessment.entities.User;
-import com.mintyn.assessment.securities.SecurityConstants;
-import com.mintyn.assessment.securities.manager.CustomAuthenticationManager;
+import com.mintyn.assessment.security.SecurityConstants;
+import com.mintyn.assessment.security.manager.CustomAuthenticationManager;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

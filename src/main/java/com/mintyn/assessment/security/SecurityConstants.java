@@ -1,4 +1,4 @@
-package com.mintyn.assessment.securities;
+package com.mintyn.assessment.security;
 
 public class SecurityConstants {
 

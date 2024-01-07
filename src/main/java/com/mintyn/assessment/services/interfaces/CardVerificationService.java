@@ -1,9 +1,7 @@
-package com.mintyn.assessment.service.interfaces;
+package com.mintyn.assessment.services.interfaces;
 
 import com.mintyn.assessment.dto.cardverification.response.CardStatsResponse;
 import com.mintyn.assessment.dto.cardverification.response.CardVerificationResponse;
-
-import java.util.Map;
 
 public interface CardVerificationService {
     CardStatsResponse getCardVerificationStats(int start, int limit);

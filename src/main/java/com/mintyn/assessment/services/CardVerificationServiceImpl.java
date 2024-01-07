@@ -1,4 +1,4 @@
-package com.mintyn.assessment.service;
+package com.mintyn.assessment.services;
 
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
@@ -10,10 +10,9 @@ import com.mintyn.assessment.dto.cardverification.response.CardVerificationRespo
 import com.mintyn.assessment.entities.CardVerification;
 import com.mintyn.assessment.exceptions.CardServiceVerificationException;
 import com.mintyn.assessment.repositories.CardVerificationRepository;
-import com.mintyn.assessment.service.interfaces.CardVerificationService;
+import com.mintyn.assessment.services.interfaces.CardVerificationService;
 import com.mintyn.assessment.enums.ResponseMessages;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

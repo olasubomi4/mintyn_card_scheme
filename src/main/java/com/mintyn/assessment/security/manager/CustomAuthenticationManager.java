@@ -1,9 +1,9 @@
-package com.mintyn.assessment.securities.manager;
+package com.mintyn.assessment.security.manager;
 
 
 import com.mintyn.assessment.entities.User;
 import com.mintyn.assessment.exceptions.InvalidCredentialsException;
-import com.mintyn.assessment.service.interfaces.UserService;
+import com.mintyn.assessment.services.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

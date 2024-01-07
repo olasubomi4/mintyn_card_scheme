@@ -1,10 +1,10 @@
-package com.mintyn.assessment.service;
+package com.mintyn.assessment.services;
 
 import com.mintyn.assessment.entities.User;
 import com.mintyn.assessment.exceptions.DuplicateUserException;
 import com.mintyn.assessment.exceptions.EntityNotFoundException;
 import com.mintyn.assessment.repositories.UserRepository;
-import com.mintyn.assessment.service.interfaces.UserService;
+import com.mintyn.assessment.services.interfaces.UserService;
 import com.mintyn.assessment.enums.ResponseMessages;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

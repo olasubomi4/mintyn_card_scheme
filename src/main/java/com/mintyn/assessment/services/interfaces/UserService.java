@@ -1,4 +1,4 @@
-package com.mintyn.assessment.service.interfaces;
+package com.mintyn.assessment.services.interfaces;
 
 
 import com.mintyn.assessment.entities.User;

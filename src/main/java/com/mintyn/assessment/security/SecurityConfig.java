@@ -1,9 +1,9 @@
-package com.mintyn.assessment.securities;
+package com.mintyn.assessment.security;
 
-import com.mintyn.assessment.securities.filter.AuthenticationFilter;
-import com.mintyn.assessment.securities.filter.ExceptionHandlerFilter;
-import com.mintyn.assessment.securities.filter.JWTAuthorizationFilter;
-import com.mintyn.assessment.securities.manager.CustomAuthenticationManager;
+import com.mintyn.assessment.security.filters.AuthenticationFilter;
+import com.mintyn.assessment.security.filters.ExceptionHandlerFilter;
+import com.mintyn.assessment.security.filters.JWTAuthorizationFilter;
+import com.mintyn.assessment.security.manager.CustomAuthenticationManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

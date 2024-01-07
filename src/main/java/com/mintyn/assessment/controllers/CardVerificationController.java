@@ -3,7 +3,7 @@ package com.mintyn.assessment.controllers;
 import com.mintyn.assessment.dto.cardverification.response.CardStatsResponse;
 import com.mintyn.assessment.dto.cardverification.response.CardVerificationResponse;
 import com.mintyn.assessment.dto.ErrorResponse;
-import com.mintyn.assessment.service.interfaces.CardVerificationService;
+import com.mintyn.assessment.services.interfaces.CardVerificationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;

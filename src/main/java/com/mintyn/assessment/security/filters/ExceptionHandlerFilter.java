@@ -1,4 +1,4 @@
-package com.mintyn.assessment.securities.filter;
+package com.mintyn.assessment.security.filters;
 import java.io.IOException;
 import java.util.Arrays;
 

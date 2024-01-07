@@ -1,4 +1,4 @@
-package com.mintyn.assessment.service;
+package com.mintyn.assessment.services;
 
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
@@ -6,7 +6,6 @@ import com.google.gson.GsonBuilder;
 import com.mintyn.assessment.configs.AppConfigurations;
 import com.mintyn.assessment.dto.bin.response.BankInfo;
 import com.mintyn.assessment.dto.bin.response.BinResponse;
-import com.mintyn.assessment.dto.bin.response.NumberInfo;
 import com.mintyn.assessment.dto.cardverification.response.CardStatsResponse;
 import com.mintyn.assessment.dto.cardverification.response.CardVerificationPayload;
 import com.mintyn.assessment.dto.cardverification.response.CardVerificationResponse;
@@ -41,7 +40,6 @@ import static org.mockito.Mockito.*;
 @RunWith(SpringRunner.class)
 @TestPropertySource(locations = "classpath:application.properties")
 class CardVerificationServiceImplTest {
-
 
     @Spy
     private AppConfigurations appConfigurations;
@@ -91,13 +89,15 @@ class CardVerificationServiceImplTest {
 
     @Test
     void verifyCardFromCache() {
+        //Given
+        String sampleValidCard="4571731213424242532";
+
         // Mocking cache and repository
         when(cardVerificationCache.getIfPresent(anyString())).thenReturn(new CardVerification());
         when(cardVerificationRepository.findByCardNumber(anyString())).thenReturn(new CardVerification());
-        when(appConfigurations.getBinDetailApiUrl()).thenReturn( System.getenv("BIN_DETAIL_API_URL"));
 
         // Performing the test
-        CardVerificationResponse result = cardVerificationService.verifyCard("1234567890123");
+        CardVerificationResponse result = cardVerificationService.verifyCard(sampleValidCard);
 
         // Verifying the result
         assertEquals(true, result.isSuccess());
@@ -105,12 +105,15 @@ class CardVerificationServiceImplTest {
 
     @Test
     void verifyCardFromDatabase() {
+        //Given
+        String sampleValidCard="4571731213424242532";
+
         // Mocking cache and repository
         when(cardVerificationCache.getIfPresent(anyString())).thenReturn(null);
         when(cardVerificationRepository.findByCardNumber(anyString())).thenReturn(new CardVerification());
 
         // Performing the test
-        CardVerificationResponse result = cardVerificationService.verifyCard("1234567890123");
+        CardVerificationResponse result = cardVerificationService.verifyCard(sampleValidCard);
 
         // Verifying the result
         assertEquals(true, result.isSuccess());
@@ -138,7 +141,8 @@ class CardVerificationServiceImplTest {
 
         // Create an instance of your class and set the WebClient
 
-        cardVerificationService  = new CardVerificationServiceImpl(appConfigurations,webClient,cardVerificationRepository,cardVerificationCache);
+        cardVerificationService  = new CardVerificationServiceImpl(appConfigurations,webClient
+                ,cardVerificationRepository,cardVerificationCache);
 
         // Perform the method invocation
         CardVerificationResponse resultBinResponse = cardVerificationService.verifyCard(sampleValidCard);
@@ -164,7 +168,8 @@ class CardVerificationServiceImplTest {
         WebClient webClient = WebClient.builder().baseUrl(mockWebServerBaseUrl).build();
 
         // Create an instance of your class and set the WebClient
-        cardVerificationService  = new CardVerificationServiceImpl(appConfigurations,webClient,cardVerificationRepository,cardVerificationCache);
+        cardVerificationService  = new CardVerificationServiceImpl(appConfigurations,webClient
+                ,cardVerificationRepository,cardVerificationCache);
 
         // Performing the test
         NotFoundException exception = org.junit.jupiter.api.Assertions.assertThrows(
@@ -191,7 +196,8 @@ class CardVerificationServiceImplTest {
         WebClient webClient = WebClient.builder().baseUrl(mockWebServerBaseUrl).build();
 
         // Create an instance of your class and set the WebClient
-        cardVerificationService  = new CardVerificationServiceImpl(appConfigurations,webClient,cardVerificationRepository,cardVerificationCache);
+        cardVerificationService  = new CardVerificationServiceImpl(appConfigurations,webClient
+                ,cardVerificationRepository,cardVerificationCache);
 
         // Performing the test
         CardServiceVerificationException exception = org.junit.jupiter.api.Assertions.assertThrows(

@@ -1,9 +1,9 @@
-package com.mintyn.assessment.service;
+package com.mintyn.assessment.services;
 
 import com.mintyn.assessment.entities.User;
 import com.mintyn.assessment.exceptions.DuplicateUserException;
 import com.mintyn.assessment.repositories.UserRepository;
-import com.mintyn.assessment.service.interfaces.UserService;
+import com.mintyn.assessment.services.interfaces.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

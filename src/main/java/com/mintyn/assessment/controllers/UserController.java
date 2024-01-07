@@ -2,7 +2,7 @@ package com.mintyn.assessment.controllers;
 
 
 import com.mintyn.assessment.entities.User;
-import com.mintyn.assessment.service.interfaces.UserService;
+import com.mintyn.assessment.services.interfaces.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;

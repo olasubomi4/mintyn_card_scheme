@@ -1,9 +1,9 @@
-package com.mintyn.assessment.securities.filter;
+package com.mintyn.assessment.security.filters;
 
 import java.io.IOException;
 import java.util.Arrays;
 
-import com.mintyn.assessment.securities.SecurityConstants;
+import com.mintyn.assessment.security.SecurityConstants;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
