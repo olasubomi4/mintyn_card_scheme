@@ -45,7 +45,7 @@ class CardVerificationServiceImplTest {
     private AppConfigurations appConfigurations;
 
     @Mock
-    private Cache<String, CardVerification> cardVerificationCache;
+    private Cache<String, Object> cardVerificationCache;
 
     @Mock
     private CardVerificationRepository cardVerificationRepository;

@@ -38,14 +38,9 @@ public class CardVerificationServiceImpl implements CardVerificationService {
     private WebClient webClient;
     @Autowired
     private CardVerificationRepository cardVerificationRepository;
-    private Cache<String, CardVerification> cardVerificationCache;
+    @Autowired
+    private Cache<String, Object> cardVerificationCache;
 
-
-
-    public CardVerificationServiceImpl() {
-        this.cardVerificationCache = Caffeine.newBuilder().expireAfterWrite(1, TimeUnit.HOURS)
-                .build();
-    }
 
     @Override
     public CardStatsResponse getCardVerificationStats(int start, int limit) {
@@ -60,7 +55,7 @@ public class CardVerificationServiceImpl implements CardVerificationService {
     public CardVerificationResponse verifyCard(String cardNumber) {
         cardNumber = modifyCardNumber(cardNumber);
         // Check if card verification details are in cache
-        CardVerification cardVerificationDetails = cardVerificationCache.getIfPresent(cardNumber);
+        CardVerification cardVerificationDetails = (CardVerification) cardVerificationCache.getIfPresent(cardNumber);
         if (cardVerificationDetails != null) {
             log.info("Retrieving bin details from cache");
             increaseCardVerificationHitCountBy1(cardVerificationDetails);
