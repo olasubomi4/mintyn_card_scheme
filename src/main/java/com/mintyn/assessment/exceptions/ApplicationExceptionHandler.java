@@ -24,7 +24,6 @@ import org.webjars.NotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 @ControllerAdvice
@@ -38,7 +37,15 @@ public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler 
         return ResponseEntity.internalServerError().body(errorResponse);
     }
 
-    @ExceptionHandler(CardServiceVerificationException.class)
+    @ExceptionHandler( {DuplicateUserException.class})
+    public ResponseEntity<?> handleDuplicateUserException(@NotNull DuplicateUserException ex) {
+        List<String> errors = new ArrayList<>();
+        errors.add(ex.getMessage());
+        ErrorResponse errorResponse = new ErrorResponse("Duplicate user Error",errors);
+        return ResponseEntity.badRequest().body(errorResponse);
+    }
+
+    @ExceptionHandler({CardServiceVerificationException.class})
     public ResponseEntity<Object> handleCardServiceException(@NotNull CardServiceVerificationException ex) {
         List<String> errors = new ArrayList<>();
         errors.add(ex.getMessage());
